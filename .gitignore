@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Environment variables (secrets)
+.env
+
+# RAG generated files (chatbot) - REMOVE these lines IF you need to commit these
+# vector_index.faiss
+# chunks_metadata.pkl
+# rag_docs/ # Uncomment and add if you need to commit the entire folder
+
+# Editor/OS specific files
+.DS_Store
+tempCodeRunnerFile.py # Ignore this temporary file
