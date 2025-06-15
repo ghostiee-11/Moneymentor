@@ -1,0 +1,420 @@
+/* --- moneymentor Comic/Game Theme Variables (Matching stylesp.css) --- */
+:root {
+    /* Inspired by stylesp.css and other game pages */
+    --comic-bg-primary: #f0f4f8;    /* Light background, like body on some game pages */
+    --comic-card-bg: #ffffff;      /* White card background */
+    --comic-input-bg: #ffffff;      /* White input background */
+    --comic-text-dark: #333333;     /* Main dark text */
+    --comic-text-secondary: #6b7280;/* Muted text/Placeholders */
+    --comic-border-dark: #000000;   /* Thick black border */
+    --comic-border-light: #e5e7eb;  /* Light grey border for details */
+    --comic-accent-blue: #4299e1;   /* Blue accent (like Teen Investors) */
+    --comic-accent-pink: #ed64a6;   /* Pink accent (like Tiny Savers) */
+    --comic-accent-yellow: #f6e05e; /* Yellow accent (like buttons) */
+    --comic-accent-green: #68d391;  /* Green accent (like Shopkeeper) */
+    --comic-accent-purple: #805ad5; /* Purple accent (like Smart Spenders) */
+    --comic-box-shadow-dark: 8px 8px 0px 0px rgba(0, 0, 0, 0.8); /* Comic panel shadow */
+    --comic-box-shadow-medium: 4px 4px 0px 0px rgba(0, 0, 0, 0.6); /* Smaller comic shadow */
+    --comic-box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    --error-red: #ef4444;           /* Retain a clear error color */
+    --success-green: #22c55e;       /* Standard green for success */
+    --warning-yellow: #f59e0b;      /* Amber/Orange for warnings */
+    --link-color: var(--comic-accent-blue); /* Blue for links */
+    --border-radius-main: 0.75rem; /* 12px rounded corners */
+    --border-radius-small: 0.5rem; /* 8px rounded corners */
+    --border-radius-pill: 9999px;  /* Pill shape */
+}
+
+/* --- General Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Comic Neue', 'Comic Sans MS', cursive; /* Comic font */
+    background-color: var(--comic-bg-primary); /* Light comic background */
+    color: var(--comic-text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px; /* Add padding */
+    position: relative; /* For potential background effects */
+    overflow-x: hidden; /* Prevent horizontal scroll from shadows */
+}
+
+.container {
+    max-width: 900px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px; /* Horizontal padding */
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Header --- */
+header {
+    background-color: var(--comic-bg-primary); /* Match body */
+    padding: 20px 0;
+    border-bottom: 4px solid var(--comic-border-dark); /* Thick comic border */
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10; /* Ensure header is on top */
+    margin-bottom: 30px; /* Space below header */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--comic-accent-blue); /* Colored logo */
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.2); /* Subtle text shadow */
+}
+
+nav a.back-home {
+    text-decoration: none;
+    color: var(--comic-text-secondary);
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+nav a.back-home:hover {
+    color: var(--comic-text-dark);
+}
+nav a.back-home i { /* Style for Font Awesome icon */
+    margin-right: 5px;
+    font-size: 0.9em;
+    color: var(--comic-text-secondary);
+}
+
+
+main {
+    flex-grow: 1;
+    padding-top: 0; /* Padding moved to body */
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center main content block */
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 25px 0;
+    border-top: 4px solid var(--comic-border-dark); /* Thick comic border */
+    color: var(--comic-text-secondary);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    background-color: var(--comic-bg-primary); /* Match body */
+}
+
+/* --- Main Content Styling --- */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--comic-text-dark);
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.5); /* Light shadow on text */
+}
+
+p.description {
+    text-align: center;
+    color: var(--comic-text-secondary);
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+p.description strong {
+    color: var(--error-red); /* Highlight disclaimer part in red */
+    font-weight: 700; /* Bolder */
+}
+
+
+/* --- Card Sections (Styled like Comic Panels) --- */
+section.card {
+    background-color: var(--comic-card-bg); /* White background */
+    border-radius: var(--border-radius-main);
+    padding: 2rem; /* Generous padding */
+    margin-bottom: 2rem;
+    border: 4px solid var(--comic-border-dark); /* Thick black border */
+    box-shadow: var(--comic-box-shadow-dark); /* Comic shadow */
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+}
+/* Add subtle pattern to sections */
+section.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: radial-gradient(black 1px, transparent 0);
+    background-size: 20px 20px;
+    z-index: -1;
+}
+
+
+section.card h2 {
+    font-size: 1.8rem;
+    font-weight: 700; /* Bolder */
+    color: var(--comic-accent-purple); /* Purple title */
+    margin-top: 0;
+    margin-bottom: 1.5rem; /* Adjusted margin */
+    padding-bottom: 0.5rem; /* Added padding */
+    border-bottom: 3px solid var(--comic-border-dark); /* Comic border */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+}
+section.card h2 i { /* Style for icons in h2 */
+    font-size: 1.1em;
+    margin-left: 10px;
+    color: var(--comic-text-dark); /* Dark icon */
+}
+
+
+/* --- Form Styles --- */
+#tax-form .form-group { margin-bottom: 1.5rem; }
+#tax-form .form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--comic-text-dark); /* Dark text for labels */
+    font-size: 1em;
+    font-weight: 700; /* Bolder label */
+}
+#tax-form .form-group label i { /* Style for icons in labels */
+    margin-right: 8px;
+    color: var(--comic-accent-blue); /* Blue accent icon */
+}
+
+#tax-form input[type="text"],
+#tax-form input[type="number"],
+#tax-form textarea {
+    width: 100%;
+    padding: 12px 15px; /* Increased padding */
+    border-radius: var(--border-radius-small);
+    border: 2px solid var(--comic-border-dark); /* Comic border */
+    background-color: var(--comic-input-bg); /* White background */
+    color: var(--comic-text-dark);
+    font-size: 1rem;
+    font-family: inherit; /* Use comic font */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+#tax-form input::placeholder,
+#tax-form textarea::placeholder {
+     color: var(--comic-text-secondary);
+     opacity: 1;
+     font-style: italic; /* Italic placeholder */
+}
+#tax-form input:focus,
+#tax-form textarea:focus {
+    outline: none;
+    border-color: var(--comic-accent-blue); /* Blue accent */
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.4); /* Blue glow */
+}
+/* Remove number input spin buttons */
+#tax-form input[type=number]::-webkit-inner-spin-button,
+#tax-form input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#tax-form input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+/* --- Submit Button (Comic Button Style) --- */
+#get-strategy-button.comic-button {
+    background-color: var(--comic-accent-yellow);
+    color: var(--comic-text-dark);
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: var(--border-radius-small);
+    border: 2px solid var(--comic-border-dark);
+    box-shadow: var(--comic-box-shadow-medium); /* Medium comic shadow */
+    transition: all 0.15s ease-in-out;
+    display: inline-block;
+    width: 100%; /* Full width */
+    text-align: center;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+#get-strategy-button.comic-button:hover:not(:disabled) {
+    background-color: #fbd38d; /* Lighter yellow */
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.6);
+}
+#get-strategy-button.comic-button:active:not(:disabled) {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.6);
+}
+#get-strategy-button.comic-button:disabled {
+    background-color: #cccccc !important;
+    color: #888888 !important;
+    border-color: #888888 !important;
+    cursor: not-allowed;
+    opacity: 0.8;
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.4);
+    transform: none !important;
+}
+
+
+/* --- HR Divider (Comic Divider Style) --- */
+hr.comic-divider {
+    border: none;
+    height: 6px;
+    background: repeating-linear-gradient(
+        -45deg,
+        var(--comic-accent-pink),
+        var(--comic-accent-pink) 10px,
+        var(--comic-accent-yellow) 10px,
+        var(--comic-accent-yellow) 20px
+    );
+    margin: 40px auto;
+    width: 80%;
+    border-radius: 3px;
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.3);
+}
+
+
+/* --- Output Section --- */
+#output-section h2 { /* Uses the same card h2 style */ }
+#strategy-output {
+    margin-top: 0;
+    color: var(--comic-text-dark); /* Dark text */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.7;
+}
+#strategy-output strong {
+    color: var(--comic-accent-blue); /* Highlight bold text in blue */
+    font-weight: 700;
+}
+#strategy-output em {
+    color: var(--comic-text-secondary); /* Muted italics */
+    font-style: italic;
+}
+#strategy-output ul,
+#strategy-output ol {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 25px;
+}
+#strategy-output li {
+    margin-bottom: 5px;
+}
+
+#output-disclaimer.disclaimer {
+    font-size: 0.9em;
+    color: var(--comic-text-secondary);
+    background-color: rgba(255, 193, 7, 0.15); /* Transparent warning yellow */
+    border-left: 3px solid var(--warning-yellow);
+    padding: 10px 15px;
+    margin-top: 2rem;
+    border-radius: 4px;
+}
+#output-disclaimer.disclaimer i {
+    margin-right: 8px;
+    color: var(--warning-yellow);
+}
+#output-disclaimer.disclaimer strong {
+    color: var(--comic-text-dark); /* Bold text is primary color */
+    font-weight: 700;
+}
+
+
+/* --- Loading & Error --- */
+.loading-indicator {
+    text-align: center;
+    padding: 1.5rem 0;
+    font-style: italic;
+    color: var(--comic-text-secondary);
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(66, 153, 225, 0.3); /* Blue spinner */
+    border-radius: 50%;
+    border-top-color: var(--comic-accent-blue);
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error-message {
+    color: var(--error-red);
+    background-color: rgba(239, 68, 68, 0.15);
+    border: 2px solid var(--error-red); /* Comic border */
+    padding: 1rem;
+    border-radius: var(--border-radius-small);
+    margin: 1.5rem auto;
+    max-width: 600px;
+    text-align: center;
+    font-weight: 600; /* Bolder */
+    font-size: 0.95em;
+    box-shadow: 3px 3px 0px 0px rgba(239, 68, 68, 0.5); /* Comic shadow */
+}
+
+
+/* --- Utility Class --- */
+.hidden {
+    display: none !important;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    main { padding-top: 30px; padding-bottom: 30px; }
+    section.card { padding: 1.5rem; margin-bottom: 1.5rem; } /* Restore padding */
+    section.card h2 { font-size: 1.6rem; margin-bottom: 1rem; padding-bottom: 0.4rem; }
+    #tax-form .form-group { margin-bottom: 1rem; }
+    #tax-form label { font-size: 0.95rem; }
+    #tax-form input, #tax-form textarea { padding: 0.6rem 0.8rem; font-size: 0.95rem; }
+    #get-strategy-button.comic-button { padding: 0.7rem 1.2rem; font-size: 1em; }
+    .loading-indicator { padding: 1rem 0; font-size: 0.9em; }
+    .error-message { padding: 0.8rem; font-size: 0.9em; box-shadow: 2px 2px 0px 0px rgba(239, 68, 68, 0.5); }
+    p.description { margin-bottom: 20px; font-size: 0.95rem; }
+    #output-disclaimer.disclaimer { margin-top: 1.5rem; font-size: 0.8em; }
+    #strategy-output { line-height: 1.6; font-size: 0.95em;}
+    hr.comic-divider { margin: 30px auto; width: 90%; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    .container { padding-left: 10px; padding-right: 10px; }
+    main { padding-top: 20px; padding-bottom: 20px; }
+    section.card { padding: 1rem; margin-bottom: 1rem; }
+    section.card h2 { font-size: 1.4rem; margin-bottom: 0.8rem; padding-bottom: 0.3rem; }
+    #tax-form label { font-size: 0.9em;}
+    #tax-form input, #tax-form textarea { padding: 0.5rem 0.6rem; font-size: 0.9em; }
+    #get-strategy-button.comic-button { padding: 0.6rem 1rem; font-size: 0.9em; margin-top: 1rem;}
+    .loading-indicator { font-size: 0.9em; }
+    .error-message { font-size: 0.85em; box-shadow: 1px 1px 0px 0px rgba(239, 68, 68, 0.5);}
+    p.description { font-size: 0.85rem; margin-bottom: 15px;}
+     #output-disclaimer.disclaimer { font-size: 0.75em; padding: 8px 10px; margin-top: 1rem;}
+}

@@ -1,0 +1,442 @@
+/* Base Styles - Based on your stylesp.css, adapted for moneymentor landing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Comic Neue", "Comic Sans MS", cursive;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa; /* Fallback */
+    overflow-x: hidden;
+    /* Remove body background images here */
+    background-image: none !important;
+  }
+
+  /* Comic font styling */
+  .font-comic {
+    font-family: "Comic Neue", "Comic Sans MS", cursive;
+    font-weight: bold;
+  }
+
+  /* --- New: Background Chart Styling --- */
+  #background-chart {
+      position: fixed; /* Fixed so it covers the viewport */
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom, #e0f7fa, #b2ebf2); /* Sky gradient */
+      z-index: 0; /* Ensure it's behind content */
+      pointer-events: none; /* Allow clicking through */
+      /* Add a pattern or simulated chart effect */
+      background-image:
+          linear-gradient(to right, rgba(178, 235, 242, 0.5) 1px, transparent 1px), /* Vertical grid lines */
+          linear-gradient(to bottom, rgba(178, 235, 242, 0.5) 1px, transparent 1px); /* Horizontal grid lines */
+      background-size: 80px 60px; /* Adjust spacing of grid lines */
+      animation: chart-anim 15s linear infinite alternate; /* Simple animation */
+  }
+
+  /* Optional: More complex background wave animation */
+  @keyframes chart-anim {
+      0% { background-position: 0% 0%; filter: brightness(1); }
+      50% { background-position: 100% 50%; filter: brightness(1.05); }
+      100% { background-position: 0% 100%; filter: brightness(1); }
+  }
+
+
+  /* Container - Ensure it's above the background chart */
+  .dashboard-container {
+    min-height: 100vh;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* Ensure content is above background */
+  }
+
+  .dashboard-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10; /* Keep content above other relative elements */
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    /* Add a subtle background or transparency to stand out from chart */
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+   /* Remove back button styling as it's not on the landing page */
+  .header.with-back-button { display: block; margin-bottom: 2rem; } /* Reset */
+  .back-button { display: none; } /* Hide */
+
+
+  .main-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #f6e05e; /* Yellow/Gold */
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000, 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  /* No specific page title needed for landing */
+  .page-title { display: none; }
+
+
+  /* Speech Bubbles */
+  .speech-bubble {
+    position: relative;
+    background-color: white;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    max-width: 400px; /* Slightly wider for tagline */
+    border: 2px solid black;
+    margin-bottom: 2rem;
+    /* Center speech bubble if not specifically positioned */
+    margin-left: auto; margin-right: auto;
+  }
+
+  .speech-bubble.centered {
+    margin: 0 auto 2rem;
+    max-width: 500px;
+  }
+
+  .speech-bubble-tail {
+    position: absolute;
+    bottom: -12px;
+    left: 50%; /* Center tail */
+    transform: translateX(-50%) rotate(45deg); /* Center and rotate */
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+  }
+
+  .thought-bubble {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: white;
+    padding: 0.75rem;
+    border-radius: 50%;
+    max-width: 200px;
+    border: 2px solid black;
+    transform-origin: bottom right;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    z-index: 5; /* Ensure thought bubble is above panel */
+  }
+
+  .thought-bubble-tail {
+    position: absolute;
+    bottom: -12px;
+    right: 32px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+  }
+
+  .thought-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -24px;
+    right: 16px;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+  }
+
+  /* Hover effect on module card triggers thought bubble */
+  .module-card:hover .thought-bubble {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  /* Grids */
+  /* Remove age-groups-grid specific styles as it's not on landing */
+  .age-groups-grid { display: none; }
+
+  .modules-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default stack */
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  /* Apply flexible grid for 4 items on wider screens */
+  .modules-grid.three-columns { /* Keeping class name but changing layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 250px minimum width */
+    justify-content: center; /* Center the grid items if they don't fill the width */
+  }
+
+  /* No specific media query needed if using auto-fit */
+  /* @media (min-width: 768px) { ... } */
+
+
+  /* Comic Panel */
+  .comic-panel {
+    position: relative;
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 4px solid black;
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s;
+    cursor: pointer;
+    height: 100%; /* Make panels same height if grid items are aligned */
+  }
+
+  .comic-panel:hover {
+    transform: scale(1.03) rotate(1deg); /* Slightly less scale than age groups */
+  }
+
+  .comic-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: radial-gradient(black 1px, transparent 0);
+    background-size: 20px 20px;
+    z-index: -1; /* Behind the content inside the wrapper */
+  }
+
+  .panel-content {
+    padding: 1.5rem;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Distribute space */
+  }
+
+  /* Icons and Containers */
+  .icon-container {
+    width: 5rem; /* Slightly smaller icons for features */
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    border: 4px solid white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Prevent icon container from shrinking */
+  }
+
+  .icon {
+    width: 2.5rem; /* Adjust icon size inside container */
+    height: 2.5rem;
+    color: white;
+  }
+
+  /* Specific colors for feature icons */
+  .bg-blue-500 { background-color: #3182ce; } /* Chatbot */
+  .bg-pink-500 { background-color: #d53f8c; } /* Finnyland */
+  .bg-purple-500 { background-color: #805ad5; } /* Goal Planner */
+  .bg-green-500 { background-color: #68d391; } /* Tax Suggester (New) */
+
+
+  /* Titles and Text */
+  /* Use module-title for all feature titles */
+  .panel-title { display: none; } /* Hide original panel title */
+  .panel-subtitle { display: none; } /* Hide original panel subtitle */
+
+  .module-title {
+    font-size: 1.4rem; /* Adjust module title size */
+    font-weight: bold;
+    margin-bottom: 0.5rem; /* Reduced margin */
+    text-align: center;
+    color: #333; /* Default text color */
+  }
+  .module-description {
+    color: #4a5568;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 0.95rem; /* Adjust description size */
+    flex-grow: 1; /* Allow description to take space */
+  }
+
+  .footer-text {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #805ad5;
+    /* Ensure footer text is above the background */
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Comic Button */
+  .comic-button {
+    background-color: #f6e05e;
+    color: black;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid black;
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.8);
+    transition: all 0.15s ease-in-out;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem; /* Adjust button text size */
+    flex-shrink: 0; /* Prevent button from shrinking */
+  }
+
+  .comic-button:hover {
+    transform: scale(1.08); /* Slightly smaller scale on hover */
+  }
+
+  .comic-button:active {
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.8);
+    transform: translateX(2px) translateY(2px);
+  }
+
+  /* Comic Exclamations */
+  .comic-exclamation {
+    position: absolute;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #f6e05e;
+    z-index: 5; /* Ensure exclamation is above panel background pattern */
+  }
+
+  .comic-exclamation.top-right {
+    top: 8px;
+    right: 8px;
+    transform: rotate(12deg);
+  }
+
+  .comic-exclamation.bottom-left {
+    bottom: 8px;
+    left: 8px;
+    transform: rotate(-12deg);
+  }
+
+  /* Specific colors for feature exclamations */
+  .comic-exclamation.blue { color: #3182ce; }
+  .comic-exclamation.pink { color: #d53f8c; }
+  .comic-exclamation.purple { color: #805ad5; }
+  .comic-exclamation.yellow { color: #f6e05e; } /* Tax Suggester (New) */
+
+
+  /* Floating Coins - Keep existing styles */
+  .floating-coins {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1; /* Below content, above background chart */
+  }
+
+  .coin {
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    background-color: #f6e05e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #975a16;
+    font-weight: bold;
+    border: 2px solid #975a16;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: floatUp 15s linear infinite;
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+    }
+    100% {
+      transform: translateY(-100px) rotate(360deg);
+    }
+  }
+
+  /* Remove specific module styles from here, they belong on their respective pages */
+  /* Smart Spenders Modules */
+  .dreamboard-goals, .slider-container, .savings-result { display: none; } /* Hide */
+  /* Spin Wheel Module */
+  .spin-wheel-container { display: none; } /* Hide */
+  /* Finance Diary Module */
+  .finance-diary { display: none; } /* Hide */
+  /* Teen Investors Modules */
+  .upi-simulator, .stock-list, .savings-vs-investment { display: none; } /* Hide */
+
+
+  /* Hide elements by default - keep for subpages if reusing styles.css */
+  .hidden {
+    display: none;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      padding: 1.5rem; /* Adjusted padding */
+    }
+
+    .main-title {
+      font-size: 3rem; /* Adjusted size */
+    }
+
+    .page-title { /* Not on landing */ display: none;}
+
+    .icon-container {
+      width: 5rem;
+      height: 5rem;
+    }
+
+    .icon {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .panel-title { /* Not on landing */ display: none;}
+
+    .module-title {
+      font-size: 1.4rem;
+    }
+
+    .comic-button {
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    .coin {
+      width: 2.5rem; /* Slightly smaller coins */
+      height: 2.5rem;
+    }
+  }
+
+   @media (max-width: 480px) {
+       .dashboard-container { padding: 1rem; }
+       .main-title { font-size: 2.2rem; } /* Adjusted */
+       .speech-bubble.centered { max-width: 95%; margin-bottom: 1.5rem; }
+       .module-title { font-size: 1.2rem; }
+       .module-description { font-size: 0.9rem; margin-bottom: 0.8rem;}
+       .comic-button { font-size: 0.85rem; padding: 0.4rem 1rem; }
+       .icon-container { width: 4rem; height: 4rem; margin-bottom: 0.8rem;}
+       .icon { width: 2rem; height: 2rem; }
+       .comic-exclamation { font-size: 0.9rem; }
+       .footer-text { font-size: 0.9rem; margin-top: 2rem;}
+       .modules-grid.three-columns { gap: 1.5rem;}
+   }

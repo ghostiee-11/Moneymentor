@@ -1,0 +1,399 @@
+/* --- moneymentor Comic/Game Theme Variables --- */
+:root {
+    /* Inspired by stylesp.css and other game pages */
+    --comic-bg-primary: #f0f4f8;    /* Light background, like body on some game pages */
+    --comic-card-bg: #ffffff;      /* White card background */
+    --comic-input-bg: #ffffff;      /* White input background */
+    --comic-text-dark: #333333;     /* Main dark text */
+    --comic-text-secondary: #6b7280;/* Muted text/Placeholders */
+    --comic-border-dark: #000000;   /* Thick black border */
+    --comic-border-light: #e5e7eb;  /* Light grey border for details */
+    --comic-accent-blue: #4299e1;   /* Blue accent (like Teen Investors) */
+    --comic-accent-pink: #ed64a6;   /* Pink accent (like Tiny Savers) */
+    --comic-accent-yellow: #f6e05e; /* Yellow accent (like buttons) */
+    --comic-accent-green: #68d391;  /* Green accent (like Shopkeeper) */
+    --comic-box-shadow-dark: 8px 8px 0px 0px rgba(0, 0, 0, 0.8); /* Comic panel shadow */
+    --comic-box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    --error-red: #ef4444;           /* Retain a clear error color */
+    --link-color: var(--comic-accent-blue); /* Blue for links */
+    --border-radius-main: 0.75rem; /* 12px rounded corners */
+    --border-radius-small: 0.5rem; /* 8px rounded corners */
+    --border-radius-pill: 9999px;  /* Pill shape */
+}
+
+/* --- General Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Comic Neue', 'Comic Sans MS', cursive; /* Comic font */
+    background-color: var(--comic-bg-primary); /* Light comic background */
+    color: var(--comic-text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px; /* Add some padding */
+    position: relative; /* For potential background effects if added later */
+    overflow-x: hidden; /* Prevent horizontal scroll from shadows */
+}
+
+.container {
+    max-width: 900px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px; /* Horizontal padding */
+    position: relative; /* Ensure container content is above potential backgrounds */
+    z-index: 1;
+}
+
+/* --- Header --- */
+header {
+    background-color: var(--comic-bg-primary); /* Match body */
+    padding: 20px 0;
+    border-bottom: 4px solid var(--comic-border-dark); /* Thick comic border */
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10; /* Ensure header is on top */
+    margin-bottom: 30px; /* Space below header */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--comic-accent-blue); /* Colored logo */
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.2); /* Subtle text shadow */
+}
+
+nav a.back-home {
+    text-decoration: none;
+    color: var(--comic-text-secondary);
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+nav a.back-home:hover {
+    color: var(--comic-text-dark);
+}
+nav a.back-home svg {
+    width: 1em;
+    height: 1em;
+}
+
+/* --- Main Content --- */
+main {
+    flex-grow: 1;
+    padding-top: 0; /* Padding moved to body */
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center main content block */
+}
+
+/* --- Footer --- */
+footer {
+    margin-top: auto; /* Push footer down */
+    text-align: center;
+    padding: 25px 0;
+    border-top: 4px solid var(--comic-border-dark); /* Thick comic border */
+    color: var(--comic-text-secondary);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+/* --- Main Content Styling --- */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--comic-text-dark);
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.5); /* Light shadow on text */
+}
+
+p.description {
+    text-align: center;
+    color: var(--comic-text-secondary);
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* --- Status Area --- */
+.status {
+    margin-bottom: 15px;
+    font-style: italic;
+    color: var(--comic-text-secondary);
+    min-height: 1.2em;
+    text-align: center;
+    font-size: 0.9em;
+    width: 100%;
+    max-width: 700px;
+}
+.status.error {
+    color: var(--error-red);
+    font-weight: 600;
+}
+
+/* --- Chat UI Wrapper (The main card box) --- */
+.chat-ui-wrapper {
+    background-color: var(--comic-card-bg); /* White background */
+    border-radius: var(--border-radius-main);
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
+    border: 4px solid var(--comic-border-dark); /* Thick comic border */
+    box-shadow: var(--comic-box-shadow-dark); /* Comic shadow */
+    width: 100%;
+    max-width: 750px;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    max-height: 75vh;
+    position: relative; /* Needed for z-index if background added */
+    z-index: 2; /* Above background and maybe floating coins */
+}
+/* Add a subtle pattern like in stylesp.css panels */
+.chat-ui-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: radial-gradient(black 1px, transparent 0);
+    background-size: 20px 20px;
+    z-index: -1; /* Behind the content inside the wrapper */
+}
+
+
+/* --- Chat Messages Area --- */
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+    padding-right: 10px; /* Space for scrollbar */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Increased space between messages */
+}
+
+/* Custom Scrollbar (Adjust for light theme) */
+.chat-messages::-webkit-scrollbar { width: 8px; }
+.chat-messages::-webkit-scrollbar-track { background: var(--comic-bg-primary); border-radius: 4px; }
+.chat-messages::-webkit-scrollbar-thumb { background-color: #b0bec5; border-radius: 4px; } /* Light grey thumb */
+.chat-messages::-webkit-scrollbar-thumb:hover { background-color: #90a4ae; } /* Darker on hover */
+
+
+/* --- Individual Chat Messages --- */
+.chat-message {
+    padding: 12px 18px; /* Increased padding */
+    border-radius: 20px; /* More rounded */
+    max-width: 85%;
+    word-wrap: break-word;
+    line-height: 1.6; /* Increased line height */
+    font-size: 1rem;
+    border: 2px solid var(--comic-border-dark); /* Comic border for messages */
+    box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.5); /* Smaller comic shadow */
+}
+
+.chat-message.user {
+    background-color: var(--comic-accent-blue); /* Blue background */
+    color: var(--comic-text-dark); /* Dark text on colored background */
+    border-bottom-right-radius: var(--border-radius-small); /* Slightly less rounded corner */
+    align-self: flex-end;
+    margin-left: auto;
+    border-color: var(--comic-border-dark);
+}
+
+.chat-message.bot {
+    background-color: var(--comic-input-bg); /* White background */
+    color: var(--comic-text-dark);
+    border-bottom-left-radius: var(--border-radius-small);
+    align-self: flex-start;
+    margin-right: auto;
+    border-color: var(--comic-border-dark);
+}
+.chat-message.bot em { color: var(--comic-text-secondary); font-style: italic; }
+.chat-message.bot a { color: var(--link-color); text-decoration: underline; }
+.chat-message.bot strong { font-weight: 700; } /* Make strong bolder */
+
+.chat-message.error {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--error-red);
+    border: 2px solid var(--error-red);
+    align-self: flex-start;
+    margin-right: auto;
+    max-width: 85%;
+    border-radius: var(--border-radius-small);
+    box-shadow: 3px 3px 0px 0px rgba(239, 68, 68, 0.5); /* Red comic shadow */
+}
+.chat-message.error::before { content: "Error: "; font-weight: 700; } /* Make prefix bolder */
+
+/* --- Input Area --- */
+.chat-input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--comic-border-dark); /* Comic border separator */
+    flex-shrink: 0;
+}
+
+#chatInput {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px 15px;
+    background-color: var(--comic-input-bg); /* White input background */
+    border: 2px solid var(--comic-border-dark); /* Comic border */
+    border-radius: var(--border-radius-small);
+    color: var(--comic-text-dark);
+    font-size: 1rem;
+    font-family: inherit; /* Use comic font */
+    resize: none;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+#chatInput:focus {
+    border-color: var(--comic-accent-blue); /* Accent color on focus */
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3); /* Subtle blue glow */
+}
+#chatInput::placeholder {
+     color: var(--comic-text-secondary);
+     opacity: 1; /* Ensure placeholder is visible */
+     font-style: italic; /* Italic placeholder */
+}
+
+/* --- Buttons --- */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+/* Primary Button (Ask Assistant) */
+#chatSendButton {
+    background-color: var(--comic-accent-yellow); /* Yellow comic button */
+    color: var(--comic-text-dark);
+    padding: 12px 25px;
+    border: 2px solid var(--comic-border-dark); /* Comic border */
+    border-radius: var(--border-radius-pill); /* Pill shape */
+    font-size: 1.1em; /* Slightly larger font */
+    font-weight: 700; /* Bolder */
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-shrink: 0;
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.6); /* Comic shadow */
+}
+#chatSendButton:hover {
+    background-color: #fbd38d; /* Lighter yellow on hover */
+    transform: translate(2px, 2px); /* Simulate pressing */
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.6); /* Reduced shadow when pressed */
+}
+#chatSendButton:active {
+    transform: translate(4px, 4px); /* Deeper press */
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.6); /* Shadow fully recessed */
+}
+#chatSendButton svg {
+     width: 18px;
+     height: 18px;
+     vertical-align: middle;
+     fill: currentColor; /* Ensure icon color matches text */
+}
+
+/* Secondary Button Style (for Clear) */
+.secondary-button {
+    background-color: var(--comic-card-bg); /* White/Card background */
+    color: var(--comic-text-dark);
+    padding: 10px 20px;
+    border: 2px solid var(--comic-border-dark); /* Comic border */
+    border-radius: var(--border-radius-pill);
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-shrink: 0;
+    box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.5); /* Smaller comic shadow */
+}
+.secondary-button:hover {
+    background-color: #eeeeee; /* Lighter grey hover */
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.secondary-button:active {
+     transform: translate(2px, 2px);
+     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Disabled state for ALL buttons */
+#chatSendButton:disabled,
+.secondary-button:disabled {
+    background-color: #cccccc !important; /* Light grey */
+    color: #888888 !important; /* Muted text */
+    border-color: #888888 !important;
+    cursor: not-allowed;
+    opacity: 0.8; /* Less opaque than active state */
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.4); /* Softer shadow */
+    transform: none !important; /* No press animation */
+}
+
+
+.chat-loading {
+    text-align: center;
+    padding: 5px 0 0 0;
+    font-style: italic;
+    color: var(--comic-text-secondary);
+    font-size: 0.9em;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .chat-ui-wrapper { padding: 1.2rem 1.5rem; min-height: 400px; max-height: 70vh;}
+    .chat-messages { gap: 12px; }
+    .chat-message { font-size: 0.95rem; padding: 10px 15px; }
+    .chat-message, .chat-message.error { box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.5); } /* Adjusted shadow size */
+     #chatSendButton { box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6); } /* Adjusted shadow size */
+     #chatSendButton:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.6); }
+     #chatSendButton:active { transform: translate(2px, 2px); box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.6); }
+     .secondary-button { box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5); } /* Adjusted shadow size */
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.8rem; }
+    p.description { font-size: 0.95rem; margin-bottom: 20px;}
+    .container { padding-left: 10px; padding-right: 10px; }
+    .chat-ui-wrapper { padding: 1rem; border-radius: var(--border-radius-main); min-height: 350px; max-height: 65vh;}
+    #chatInput { padding: 10px; font-size: 0.95rem; min-height: 60px; }
+    #chatSendButton { padding: 10px 20px; font-size: 1em;}
+    .secondary-button { padding: 8px 15px; font-size: 0.9em; }
+    .button-container { flex-direction: column-reverse; gap: 10px; align-items: center;} /* Stack buttons vertically */
+     .chat-message { max-width: 95%;} /* Allow messages to be a bit wider */
+}

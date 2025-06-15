@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tax Suggester - moneymentor</title>
+    <link rel="stylesheet" href="tax_tool.css"> <!-- Link to the white comic theme CSS -->
+    <!-- Use Comic Neue font for theme consistency -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+     <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">moneymentor</div> <!-- Updated logo -->
+            <nav>
+                <!-- Link back to the moneymentor landing page -->
+                <a href="index.html" class="back-home">
+                    <i class="fas fa-arrow-left"></i>
+                    Back Home
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>AI Tax Strategy Suggester</h1> <!-- Updated title -->
+        <p class="description">
+            Get personalized *strategy ideas* based on Indian Income Tax principles.
+            <br><strong style="color: var(--error-red);">This is NOT professional tax advice. Always consult a qualified tax professional.</strong>
+        </p>
+
+        <section id="input-section" class="card"> <!-- Add card class -->
+            <h2>Your Financial Snapshot <i class="fas fa-edit"></i></h2> <!-- Add icon to match comic H2 -->
+            <form id="tax-form">
+                <div class="form-group">
+                    <label for="income"><i class="fas fa-wallet"></i> Approximate Annual Income (₹):</label>
+                    <input type="number" id="income" name="income" min="0" step="1000" placeholder="e.g., 800000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="age"><i class="fas fa-user"></i> Your Age:</label>
+                    <input type="number" id="age" name="age" min="0" max="120" placeholder="e.g., 30" required>
+                </div>
+
+                 <div class="form-group">
+                    <label for="details"><i class="fas fa-info-circle"></i> Relevant Investments/Expenses/Details (Optional):</label>
+                     <textarea id="details" name="details" rows="4" placeholder="e.g., Paying home loan EMI, paying rent, have health insurance, interested in ELSS investments, considering old vs new tax regime..."></textarea>
+                     <small>Mention things like HRA, home loan, donations, health insurance, PPF/ELSS investments, interest in old/new regime.</small>
+                </div>
+
+
+                <button type="submit" id="get-strategy-button" class="comic-button">Get Strategy Ideas</button> <!-- Add comic-button class -->
+            </form>
+        </section>
+
+        <hr class="comic-divider"> <!-- Use comic divider -->
+
+        <section id="output-section" class="card hidden"> <!-- Add card class -->
+             <h2>Suggested Strategies <i class="fas fa-scroll"></i></h2> <!-- Add icon -->
+             <div id="strategy-output">
+                 <!-- AI response will be displayed here -->
+             </div>
+             <div id="output-disclaimer" class="disclaimer">
+                  <i class="fas fa-exclamation-triangle"></i> <strong>Disclaimer:</strong> The information provided is for general guidance only and does not constitute professional tax advice. Tax laws are complex and vary based on individual circumstances and changes by the government. Consult a qualified tax advisor for personalized advice.
+             </div>
+        </section>
+
+        <div id="loading" class="loading-indicator hidden">
+            Thinking... <span class="spinner"></span>
+        </div>
+         <div id="error-message" class="error-message hidden">
+            <!-- Error messages will appear here -->
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 moneymentor. All rights reserved.</p> <!-- Updated footer -->
+        </div>
+    </footer>
+
+    <script src="tax_tool.js"></script>
+</body>
+</html>

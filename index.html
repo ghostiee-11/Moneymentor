@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moneymentor - Your Finance Adventure Starts Here!</title>
+    <!-- Link to the combined styles (will be styles.css) -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link to Google Comic Neue font -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Floating coins animation background -->
+    <div class="floating-coins" id="floatingCoins">
+        <!-- Coins will be added via JavaScript -->
+    </div>
+
+    <!-- Background element for the simulated chart -->
+    <div id="background-chart"></div>
+
+    <div class="dashboard-container">
+        <div class="dashboard-content">
+            <div class="header">
+                <h1 class="main-title">🏰 Welcome to moneymentor!</h1>
+                <div class="speech-bubble centered">
+                    <p class="font-comic">Master Your Money Journey with Fun & Smart Tools!</p>
+                    <div class="speech-bubble-tail"></div>
+                </div>
+            </div>
+
+            <div class="modules-grid three-columns">
+
+                <!-- AI Financial Chatbot Module -->
+                <div class="module-card" data-id="ai-chatbot">
+                    <a href="chatbot.html" class="module-link">
+                        <div class="comic-panel">
+                            <div class="panel-content">
+                                <div class="icon-container bg-blue-500">
+                                    <i class="fas fa-brain icon"></i>
+                                </div>
+                                <h2 class="module-title">AI Financial Chatbot</h2>
+                                <p class="module-description">Get instant answers to your money questions.</p>
+                                <div class="comic-button">Ask a Question!</div>
+                                <div class="thought-bubble hidden">
+                                    <p class="font-comic">Ask me ANYTHING!</p>
+                                    <div class="thought-bubble-tail"></div>
+                                </div>
+                                <div class="comic-exclamation top-right blue">SMART!</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Finnyland: Gamified Finance for Kids Module -->
+                <div class="module-card" data-id="finnyland">
+                    <a href="indexp.html" class="module-link"> <!-- Link to Tiny Savers as entry point -->
+                        <div class="comic-panel">
+                            <div class="panel-content">
+                                <div class="icon-container bg-pink-500">
+                                    <i class="fas fa-castle icon"></i>
+                                </div>
+                                <h2 class="module-title">Finnyland</h2>
+                                <p class="module-description">Fun games & activities for kids to learn about money!</p>
+                                <div class="comic-button">Enter Finnyland!</div>
+                                <div class="thought-bubble hidden">
+                                    <p class="font-comic">Let's Play Games!</p>
+                                    <div class="thought-bubble-tail"></div>
+                                </div>
+                                <div class="comic-exclamation top-right pink">FUN!</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Goal-Based Planner Module -->
+                <div class="module-card" data-id="goal-planner">
+                    <a href="goal.html" class="module-link">
+                        <div class="comic-panel">
+                            <div class="panel-content">
+                                <div class="icon-container bg-purple-500">
+                                    <i class="fas fa-bullseye icon"></i>
+                                </div>
+                                <h2 class="module-title">Goal Planner</h2>
+                                <p class="module-description">Plan how to save and invest for your dreams!</p>
+                                <div class="comic-button">Plan Your Dreams!</div>
+                                <div class="thought-bubble hidden">
+                                    <p class="font-comic">Let's reach it!</p>
+                                    <div class="thought-bubble-tail"></div>
+                                </div>
+                                <div class="comic-exclamation top-right purple">PLAN!</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                 <!-- AI Tax Suggester Module (NEW CARD) -->
+                <div class="module-card" data-id="tax-suggester">
+                    <a href="tax_tool.html" class="module-link">
+                        <div class="comic-panel">
+                            <div class="panel-content">
+                                <div class="icon-container bg-green-500"> <!-- Example: Green for money/finance -->
+                                    <i class="fas fa-file-invoice-dollar icon"></i> <!-- Example: Invoice/tax icon -->
+                                </div>
+                                <h2 class="module-title">AI Tax Suggester</h2>
+                                <p class="module-description">Get ideas for understanding and managing your taxes.</p>
+                                <div class="comic-button">Get Tax Tips!</div>
+                                <div class="thought-bubble hidden">
+                                    <p class="font-comic">Save Tax!</p>
+                                    <div class="thought-bubble-tail"></div>
+                                </div>
+                                <div class="comic-exclamation top-right yellow">TAX!</div> <!-- Example: Yellow exclamation -->
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-text">
+                <p>moneymentor: Your partner for financial literacy and growth, for the whole family!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Reuse and modify the existing script -->
+
+</body>
+</html>
