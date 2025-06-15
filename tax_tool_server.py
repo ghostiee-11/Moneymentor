@@ -13,7 +13,7 @@ GROQ_MODEL_NAME = 'llama3-8b-8192' # Or 'llama3-70b-8192'
 SERVER_PORT = 5004
 # Allow requests from your frontend's origin (e.g., http://127.0.0.1:5500 if using Live Server)
 # *** UPDATE THIS ***
-ALLOWED_ORIGIN = "http://127.0.0.1:3000"
+ALLOWED_ORIGIN = "https://moneymentor-sq50.onrender.com"
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - [%(funcName)s] %(message)s')
 
