@@ -2,7 +2,7 @@
 
 // --- Configuration ---
 // Make sure this matches the server's ALLOWED_ORIGIN and SERVER_PORT
-const BACKEND_URL = 'http://127.0.0.1:5004';
+const BACKEND_URL = 'https://moneymentor-sq50.onrender.com';
 
 // --- DOM Elements ---
 const taxForm = document.getElementById('tax-form');
