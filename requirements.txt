@@ -1,4 +1,8 @@
 Flask
+flask-cors
+groq
+gunicorn
+
 groq
 python-dotenv
 numpy
