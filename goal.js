@@ -3,7 +3,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Constants ---
-    const API_BASE_URL = 'http://127.0.0.1:5002'; // Your Investment Server Port (Ensure it's the 5-Asset version)
+    const API_BASE_URL = 'https://moneymentor-sq50.onrender.com'; // Your Investment Server Port (Ensure it's the 5-Asset version)
 
     // --- Element References ---
     const goalForm = document.getElementById('goal-form');
