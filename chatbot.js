@@ -1,5 +1,5 @@
 // --- Configuration ---
-const BACKEND_URL = 'http://localhost:5003'; // Base URL for backend
+const BACKEND_URL = 'https://moneymentor-sq50.onrender.com'; // Base URL for backend
 
 // --- DOM Elements ---
 // IDs match the latest HTML structure
